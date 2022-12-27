@@ -1,0 +1,130 @@
+page{
+	background-color: #d8d8d8;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.titles {
+	height: 100rpx;
+	width: 100%;
+	display: flex;
+	justify-content: baseline;
+	align-items: center;
+}
+
+.contBox {
+	width: 100rpx;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	margin-left: 10rpx;
+	background-color: rgb(51, 51, 77);
+	border-radius: 50rpx;
+}
+
+
+
+/* 小风车 */
+.xiaofc{
+	margin-top: 50rpx;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.fan{
+	margin-top: 50rpx;
+	width: 200rpx;
+	height: 200rpx;
+	/* background-color: #fff; */
+	position: relative;
+	animation: rotate 4s linear infinite;
+	transition: 3s;
+}
+.fan:hover{
+	animation: rotate 2s linear infinite;
+}
+.top{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-top: 50rpx solid transparent;
+	border-right: 50rpx solid #f4d458;
+	border-bottom: 50rpx solid #f6ef9b;
+	border-left: 50rpx solid #f6ef9b;
+}
+.right{
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-top: 50rpx solid #f28b1c;
+	border-right: 50rpx solid transparent;
+	border-bottom: 50rpx solid #e63e3b;
+	border-left: 50rpx solid #f28b1c;
+}
+.bottom{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border-top: 50rpx solid #8cb3df;
+	border-right: 50rpx solid #8cb3df;
+	border-bottom: 50rpx solid transparent;
+	border-left: 50rpx solid #3874b9;
+}
+.left{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-top: 50rpx solid #32b273;
+	border-right: 50rpx solid #c3d864;
+	border-bottom: 50rpx solid #c3d864;
+	border-left: 50rpx solid transparent;
+}
+@keyframes rotate {
+	0%{-webkit-transform:rotate(0deg); left: 0;top: 0;}
+	50%{-webkit-transform:rotate(180deg); left: 0;top: 0;}
+	100%{-webkit-transform:rotate(360deg); left: 0;top: 0;}
+}
+.stick{
+	width: 16rpx;
+	height: 300rpx;
+	background-color: #b67e4f;
+	border-radius: 16rpx;
+	margin-top: -100rpx;
+	/* z-index: -1; */
+}
+.dot{
+	width: 20rpx;
+	height: 20rpx;
+	background-color: #515151;
+	border-radius: 50%;
+	margin-top: -310rpx;
+	z-index: 2;
+}
+
+
+
+.jiazaidh{
+	margin-top: 50%;
+}
+.sdxcdai{
+	margin-top: 40rpx;
+}
+.jiazaidh, .sdxcdai{
+	position: relative;
+	width: 300rpx;
+	height: 80rpx;
+	color: #fff;
+	background-color: #55aa7f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20rpx;
+}

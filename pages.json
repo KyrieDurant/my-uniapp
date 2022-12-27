@@ -1,0 +1,62 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/transmitPage/pageA",
+			"style": {
+				"navigationBarTitleText": "A页面"
+			}
+		},
+		{
+			"path": "pages/transmitPage/pageB",
+			"style": {
+				"navigationBarTitleText": "B页面"
+			}
+		},
+		{
+			"path": "pages/min-animation/mni-loading/jz-loading",
+			"style": {
+				"navigationBarTitleText": "加载动画"
+			}
+		},
+		{
+			"path": "pages/min-animation/rotate-Pic/rotateImg",
+			"style": {
+				"navigationBarTitleText": "小动画"
+			}
+		},
+		{
+			"path": "pages/min-animation/wyyMusic/wyy-playcover",
+			"style": {
+				"navigationBarTitleText": "网易云音乐"
+			}
+		},
+		{
+			"path": "pages/transmitPage/musicPop",
+			"style": {
+				"navigationBarTitleText": "音乐弹窗"
+			}
+		},
+		{
+			"path": "pages/caogao/caogao",
+			"style": {
+				"navigationBarTitleText": "草稿页"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"titleNView": false
+		}
+	},
+	"uniIdRouter": {}
+}

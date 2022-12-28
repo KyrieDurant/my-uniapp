@@ -49,20 +49,40 @@ page{
 }
 
 /* 圆盘 */
-.platform{
+.platform1{
 	width: 470rpx;
 	height: 470rpx;
-	/* background-color: #b3fff7; */
-	/* border: 5rpx solid #5a5d72; */
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
 	position: relative;
-	animation: myRotate 15s linear infinite;
+	animation: myRotate1 15s linear infinite;
+	/* animation-play-state: paused; */
 }
-@keyframes myRotate {
+.platform2{
+	width: 470rpx;
+	height: 470rpx;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+	animation: myRotate2 15s linear infinite;
+	/* animation-play-state: paused; */
+}
+
+@keyframes myRotate1 {
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+@keyframes myRotate2 {
 	0%{
 		transform: rotate(0deg);
 	}

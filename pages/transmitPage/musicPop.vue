@@ -12,6 +12,7 @@
 				</view>
 			</view>
 			<view class="audio-view">
+				<!-- 播放/暂停 -->
 				<view class="play-button-area">
 					<image class="icon-play" :src="playImage" @click="play"></image>
 				</view>
@@ -31,25 +32,20 @@
 		</view>
 		<view class="popup_overlay" :hidden="musicPopwin" @click="hideDiv()"></view>
 		
-		
-		
 	</view>
-
 </template>
 
 <script>
-	
 	export default {
 		data() {
 			return {
 				musicPopwin: true, //为true时默认隐藏
-				title: "innerAudioContext",
 				isPlaying: false,//暂停音乐
 				isPlayEnd: false,//进度条
 				currentTime: 0,
 				currentTimeStr: '00:00',//播放到进度时间
 				duration: 100,
-				timeStr: '00:00:00',//总播放时间
+				timeStr: '00:00',//总播放时间
 			}
 		},
 		computed: {
@@ -61,8 +57,8 @@
 			}
 		},
 		onLoad() {
-			this._isChanging = false;//
-			this._audioContext = null;//s
+			this._isChanging = false;//拖动进度条
+			this._audioContext = null;//完成拖动进度条后
 		},
 		onUnload() {
 			// 音频播放
@@ -71,6 +67,7 @@
 			}
 		},
 		methods: {
+			// 点击播放音乐
 			getAudio() {
 				this.musicPopwin = false;//打开弹窗
 				this.createAudio();
@@ -89,29 +86,34 @@
 				this.isPlaying = false;//暂停音乐
 				this.isPlayEnd = false;//进度条
 			},
-			
+			//获取音频文件
 			createAudio() {
 				// 音频文件
 				// 'https://www.ytmp3.cn/down/55480.mp3'
+				// 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3'
 				const audioUrl = 'https://www.ytmp3.cn/down/55480.mp3';
+				console.log('音乐',audioUrl);
 				var innerAudioContext = this._audioContext = uni.createInnerAudioContext();
 				innerAudioContext.autoplay = false;//是否自动开始播放
 				innerAudioContext.src = audioUrl;//播放链接
-				innerAudioContext.onPlay(() => {
-					console.log('开始播放');
-				});
+				//音频可以进入播放状态
 				innerAudioContext.onCanplay(() => {
+					// 定义timeid定时器
 					let timeid = setInterval(() => {
 						if (innerAudioContext.duration) {
-							clearInterval(timeid)
+							//销毁定时器
+							clearInterval(timeid);
 							this.duration = innerAudioContext.duration || 0;
+							console.log('音频时长',innerAudioContext.duration);
 							console.log(this.duration)
 							this.timeStr = this.formatSecond(this.duration);
 						}
 					}, 500)
 				});
+				//拖动播放进度条
 				innerAudioContext.onTimeUpdate((e) => {
 					if (this._isChanging === true) {
+						//拖动进度条过程中
 						return;
 					}
 					this.currentTime = innerAudioContext.currentTime || 0;
@@ -120,12 +122,14 @@
 					//进度条最大值
 					// this.timeStr = this.formatSecond(this.duration);
 				});
+				//自然播放完成后
 				innerAudioContext.onEnded(() => {
 					this.currentTime = 0;
 					this.currentTimeStr = this.formatTime(this.currentTime);
 					this.isPlaying = false;
 					this.isPlayEnd = true;
 				});
+				// 音频播放错误事件
 				innerAudioContext.onError((res) => {
 					this.isPlaying = false;
 					console.log(res.errMsg);
@@ -135,6 +139,7 @@
 			},
 			onchanging() {
 				this._isChanging = true;
+				console.log('aaa',this._isChanging);
 			},
 			onchange(e) {
 				console.log('进度条的数字', e.detail.value);
@@ -180,7 +185,7 @@
 				var m = Math.floor((seconds / 60 % 60)) < 10 ? '0' + Math.floor((seconds / 60 % 60)) : Math.floor((
 					seconds / 60 % 60));
 				var s = Math.floor((seconds % 60)) < 10 ? '0' + Math.floor((seconds % 60)) : Math.floor((seconds % 60));
-				return h + ":" + m + ":" + s;
+				return m + ":" + s;
 			},
 			
 			

@@ -12,7 +12,6 @@
 			<view class="xuanzBox">
 				<view class="changfx"></view>
 			</view>
-			
 		</view>
 		<view class="changecolorBox">
 			<!-- 画三角形 -->
@@ -24,6 +23,14 @@
 			<!-- 各种形状椭圆 -->
 			<view class="tuoyuan"></view>
 		</view>
+		<!-- 点击改变class样式 -->
+		<view class="ysBox">
+			<view class="txBox">
+				<view :class="tuxin"></view>
+			</view>
+			<view class="djgb" @click="changeTx">切换形状</view>
+		</view>
+		
 	</view>
 </template>
 
@@ -32,13 +39,22 @@
 		data() {
 			return {
 				id: '11',
-
+				tuxin:'tuxinYx',
 			}
 		},
 		onLoad() {
 			this.getmergeArray(); //数组合并小案例
 		},
 		methods: {
+			//点击改变css样式
+			changeTx(){
+				if(this.tuxin == 'tuxinYx'){
+					this.tuxin = 'tuxinSjx';
+				} else{
+					this.tuxin = 'tuxinYx';
+				}
+			},
+			
 			getBpage(id) {
 				uni.navigateTo({
 					url: '/pages/transmitPage/pageB?id=' + id,

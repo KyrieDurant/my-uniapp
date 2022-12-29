@@ -39,19 +39,21 @@
 	export default {
 		data() {
 			return {
-				musicPopwin: true, //为true时默认隐藏
-				isPlaying: false,//暂停音乐
+				musicPopwin: true, //为true时弹窗默认隐藏
+				isPlaying: false,//暂停/播放音乐
 				isPlayEnd: false,//进度条
-				currentTime: 0,
+				currentTime: 0,//播放时间
 				currentTimeStr: '00:00',//播放到进度时间
-				duration: 100,
+				duration: 100,//进度条最大值
 				timeStr: '00:00',//总播放时间
 			}
 		},
 		computed: {
+			//判断开始播放音乐的时间
 			position() {
 				return this.isPlayEnd ? 0 : this.currentTime;
 			},
+			// 判断播放/暂停按钮
 			playImage() {
 				return this.isPlaying ? "../../static/Music-icon/zanting.png" : "../../static/Music-icon/bofang.png"
 			}
@@ -91,7 +93,7 @@
 				// 音频文件
 				// 'https://www.ytmp3.cn/down/55480.mp3'
 				// 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3'
-				const audioUrl = 'https://www.ytmp3.cn/down/55480.mp3';
+				const audioUrl = 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3';
 				console.log('音乐',audioUrl);
 				var innerAudioContext = this._audioContext = uni.createInnerAudioContext();
 				innerAudioContext.autoplay = false;//是否自动开始播放
@@ -104,7 +106,7 @@
 							//销毁定时器
 							clearInterval(timeid);
 							this.duration = innerAudioContext.duration || 0;
-							console.log('音频时长',innerAudioContext.duration);
+							console.log('音频时长',this.duration);
 							console.log(this.duration)
 							this.timeStr = this.formatSecond(this.duration);
 						}
@@ -117,10 +119,11 @@
 						return;
 					}
 					this.currentTime = innerAudioContext.currentTime || 0;
+					// console.log('音频播放位置',this.currentTime);
 					this.duration = innerAudioContext.duration || 0;
+					// console.log('更新进度条的值',this.duration);
 					this.currentTimeStr = this.formatTime(this.currentTime);
-					//进度条最大值
-					// this.timeStr = this.formatSecond(this.duration);
+					// console.log('更新已播放的时间位置',this.currentTimeStr);
 				});
 				//自然播放完成后
 				innerAudioContext.onEnded(() => {
@@ -137,10 +140,12 @@
 				});
 				return innerAudioContext;
 			},
+			// 拖动进度条时
 			onchanging() {
 				this._isChanging = true;
 				console.log('aaa',this._isChanging);
 			},
+			// 拖动进度条完成后
 			onchange(e) {
 				console.log('进度条的数字', e.detail.value);
 				console.log('进度条的类型',typeof e.detail.value);
@@ -149,6 +154,7 @@
 				const currTimeStr = this.formatTime(e.detail.value)
 				this.currentTimeStr = currTimeStr
 			},
+			//播放
 			play() {
 				if (this.isPlaying) {
 					this.pause();
@@ -158,14 +164,18 @@
 				this._audioContext.play();
 				this.isPlayEnd = false;
 			},
+			//暂停
 			pause() {
 				this._audioContext.pause();
 				this.isPlaying = false;
 			},
+			// 完成播放后
 			stop() {
+				console.log('ddd------ddddd');
 				this._audioContext.stop();
 				this.isPlaying = false;
 			},
+			// 格式化时间
 			formatTime(num) {
 				//格式化时间格式
 				num = num.toFixed(0);

@@ -93,19 +93,22 @@ page{
 .enlargeLine1{
 	background-color: rgb(65, 66, 93,0);
 	border: 6rpx solid rgb(65, 66, 93,0.3);
-	animation: fangdax1 2s linear infinite;
+	animation: fangdax1 2s linear;
 	animation-delay: 1s;
+	animation-direction:alternate;
 }
 .enlargeLine2{
 	background-color: rgb(65, 66, 93,0);
 	border: 6rpx solid rgb(165, 66, 93,1);
-	animation: fangdax2 2s linear infinite;
+	animation: fangdax2 2s linear;
 	animation-delay: 1.5s;
+	animation-direction:alternate;
 }
 .enlargeLine3{
 	background-color: rgb(25, 66, 143,0);
 	border: 4rpx solid rgb(65, 166, 93,1);
-	animation: fangdax3 2s linear infinite;
+	animation: fangdax3 2s linear;
+	animation-direction:alternate;
 }
 .enlargeLine1,.enlargeLine2,.enlargeLine3{
 	position: absolute;

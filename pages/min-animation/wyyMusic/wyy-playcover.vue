@@ -19,7 +19,7 @@
 				<view class="enlargeLine2" :style="platform2"></view>
 				<view class="enlargeLine3" :style="platform2"></view>
 				<!-- 圆盘 -->
-				<!-- style="animationPlayState: paused;"   class="platform" -->
+				<!-- style="animationPlayState: paused;" -->
 
 				<view ref="kzhiyp" :class="diskCssys" :style="platform">
 					<image :src="diskImg" mode="aspectFit" style="width: 100%; height: 100%;"></image>

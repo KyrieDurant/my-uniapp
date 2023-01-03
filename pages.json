@@ -37,6 +37,12 @@
 			}
 		},
 		{
+			"path": "pages/try-paging/subject",
+			"style": {
+				"navigationBarTitleText": "单页面多vue文件"
+			}
+		},
+		{
 			"path": "pages/transmitPage/musicPop",
 			"style": {
 				"navigationBarTitleText": "音乐弹窗"

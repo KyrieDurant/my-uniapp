@@ -18,6 +18,7 @@
 		<view class="jiazaidh" @click="goJiazai()">加载动画</view>
 		<view class="sdxcdai" @click="goxzPic()">小动画</view>
 		<view class="sdxcdai" @click="gowyyPlay()">网易云</view>
+		<view class="sdxcdai" @click="godanyedv()">单页面多vue文件</view>
 	</view>
 </template>
 
@@ -40,14 +41,22 @@
 					url:"/pages/min-animation/mni-loading/jz-loading"
 				})
 			},
+			// 跳转小动画
 			goxzPic(){
 				uni.navigateTo({
 					url:"/pages/min-animation/rotate-Pic/rotateImg"
 				})
 			},
+			// 跳转网易云界面
 			gowyyPlay(){
 				uni.navigateTo({
 					url:"/pages/min-animation/wyyMusic/wyy-playcover"
+				})
+			},
+			// 单页面多vue文件
+			godanyedv(){
+				uni.navigateTo({
+					url:"/pages/try-paging/subject"
 				})
 			},
 		}

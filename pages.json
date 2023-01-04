@@ -43,6 +43,12 @@
 			}
 		},
 		{
+			"path": "pages/zjcf/subject",
+			"style": {
+				"navigationBarTitleText": "组件拆分"
+			}
+		},
+		{
 			"path": "pages/transmitPage/musicPop",
 			"style": {
 				"navigationBarTitleText": "音乐弹窗"

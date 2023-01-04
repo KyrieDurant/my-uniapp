@@ -23,7 +23,7 @@
 		data(){
 			return {
 				xszhi:'',
-				yigez:'这是父组件的内容',
+				yigez:'',
 				message:{
 					name:'滴滴',
 					old:18,
@@ -76,7 +76,7 @@ page{
 	height: 300rpx;
 	display: flex;
 	flex-direction: column;
-	border: 1rpx solid #ccc;
+	border: 1rpx solid #66cca2;
 	justify-content: space-around;
 	align-items: center;
 	/* background-color: #41aa90; */

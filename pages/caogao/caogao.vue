@@ -1,13 +1,16 @@
 <template>
 	<view class="content">
-		<view class="">
-			第一部分
+		<view class="oneBox">
+			<view>第一部分内容</view>
 		</view>
-		<view class="">
-			第二部分
+		<view class="twoBox">
+			<view>第二部分内容</view>
+			<view class="">2222222</view>
 		</view>
-		<view class="">
-			第三部分
+		<view class="threeBox">
+			<view>第三部分内容</view>
+			<view class="">three-points</view>
+			<view class="">333333</view>
 		</view>
 	</view>
 </template>
@@ -21,16 +24,13 @@
 			}
 		},
 		components: {
-			oneBox,
+			
 		},
 		onLoad() {
 			
 		},
 		methods:{
-			chaNum(e){
-				console.log('拿到子组件传过来的', e);
-				// this.childUp = e;
-			},
+			
 		},
 	}
 </script>

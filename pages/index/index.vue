@@ -2,7 +2,8 @@
 	<view class="content">
 		<!-- 视频 -->
 		<view class="page-section">
-			<video ref="myVideo" @play="quanpingVideo()" :src="src" id="myVideo" controls></video>
+			<video ref="myVideo" style="width: 100%;"
+			 @play="quanpingVideo()" :src="src" id="myVideo" controls></video>
 		</view>
 		<!-- 图片 -->
 		<view class="imageBox">
@@ -60,6 +61,7 @@
 	}
 	.page-section{
 		margin-top: 50rpx;
+		width: 100%;
 	}
 	.butPage1{
 		display: flex;
@@ -68,7 +70,7 @@
 		margin-top: 70rpx;
 		width: 300rpx;
 		height: 75rpx;
-		background-color: rgb(0, 255, 189);
+		background-color: rgb(0, 170, 127);
 		border: 3rpx solid rgb(0, 179, 134);
 		border-radius: 20rpx;
 		color: #fff;
@@ -80,6 +82,5 @@
 		align-items: center;
 		width: 400rpx;
 		height: 400rpx;
-		
 	}
 </style>
